@@ -34,14 +34,14 @@ public final class AppRate {
         this.context = context.getApplicationContext();
     }
 
-    public static AppRate with(Context context) {
+    public static  synchronized AppRate with(Context context) {
         if (singleton == null) {
-            synchronized (AppRate.class) {
+           
                 if (singleton == null) {
                     singleton = new AppRate(context);
                 }
             }
-        }
+        
         return singleton;
     }
 
